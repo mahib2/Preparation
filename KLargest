@@ -1,0 +1,23 @@
+public class Solution {
+    public int[] solve(int[] A, int B) {
+        java.util.PriorityQueue<Integer> bar= new java.util.PriorityQueue<>();
+
+        for(int i=0;i<B;i++){
+            bar.add(A[i]);
+        }
+        for(int i=B;i<A.length;i++){
+            if(bar.peek()>A[i]) continue;
+            else {
+                bar.poll();
+                bar.add(A[i]);
+            }
+        }
+        
+        Object[] out=bar.toArray();
+        int[] barr= new int[out.length];
+        for(int i=0;i<out.length;i++){
+            barr[i]=(int) out[i];
+        }
+        return barr;
+    }
+}
